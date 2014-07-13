@@ -1,27 +1,12 @@
-
-var BasicGame = {};
-
-BasicGame.Boot = function (game) {
-    "use strict";
-};
-
-BasicGame.Boot.prototype = {
-
+var bootState = {
     preload: function () {
-        "use strict";
+        'use strict';
+        game.load.image('progressBar', 'assets/progressBar.png');
     },
-
     create: function () {
-        "use strict";
-        this.stage.backgroundColor = '#AAD2D5';
-        this.physics.startSystem(Phaser.Physics.ARCADE);
-
+        'use strict';
+        game.stage.backgroundColor = '#3498db';
+        game.physics.startSystem(Phaser.Physics.ARCADE);
+        game.state.start('load');
     }
-
 };
-
-var game = {};
-var game = new Phaser.Game(1024, 768, Phaser.AUTO, 'gameContainer');
-
-game.state.add('Boot', BasicGame.Boot);
-game.state.start('Boot');
